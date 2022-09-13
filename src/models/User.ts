@@ -1,21 +1,23 @@
-import mongoose from 'mongoose'
+import { model, Schema } from 'mongoose'
 import bcrypt from 'bcrypt'
 
 export type ModelType = {
-  login: string;
-  name?: string;
-  email: string;
-  encryptedPassword: string;
-  role: string;
+  login: string
+  name?: string
+  email: string
+  encryptedPassword: string
+  role: string
 }
 
-export const User = mongoose.model<ModelType>('User', new mongoose.Schema({
+export const UserSchema = new Schema({
 	login: { type: String, required: true, unique: true },
 	name: { type: String },
 	email: { type: String, required: true, unique: true },
 	encryptedPassword: { type: String, required: true },
 	role: { type: String, enum: ['admin', 'default'], required: true },
-}))
+})
+
+export const User = model<ModelType>('User', UserSchema)
 
 export const resourceUser = {
   resource: User,

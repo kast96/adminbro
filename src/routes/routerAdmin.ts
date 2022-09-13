@@ -1,6 +1,7 @@
 import { locale } from "../lang/ru/locale"
 import { resourceUser, User } from "../models/User"
 import bcrypt from 'bcrypt'
+import { resourcePage } from "../models/Page"
 
 const AdminBro = require('admin-bro')
 const AdminBroExpressjs = require('admin-bro-expressjs')
@@ -8,7 +9,7 @@ const AdminBroExpressjs = require('admin-bro-expressjs')
 AdminBro.registerAdapter(require('admin-bro-mongoose'))
 
 export const adminBro = new AdminBro({
-	resources: [resourceUser],
+	resources: [resourceUser, resourcePage],
 	locale: locale,
 	rootPath: '/admin',
 })
