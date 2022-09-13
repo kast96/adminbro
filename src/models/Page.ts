@@ -1,4 +1,5 @@
 import { model, Schema } from 'mongoose'
+import { structureNavigation } from '../config/navigation'
 
 export type ModelType = {
   name: string
@@ -17,5 +18,8 @@ export const PageSchema = new Schema({
 export const Page = model<ModelType>('Page', PageSchema)
 
 export const resourcePage = {
-  resource: Page
+  resource: Page,
+  options: {
+    navigation: structureNavigation
+  }
 }

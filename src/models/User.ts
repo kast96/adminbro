@@ -1,5 +1,6 @@
 import { model, Schema } from 'mongoose'
 import bcrypt from 'bcrypt'
+import { usersNavigation } from '../config/navigation'
 
 export type ModelType = {
   login: string
@@ -46,6 +47,7 @@ export const resourceUser = {
           return request
         },
       }
-    }
+    },
+    navigation: usersNavigation
   }
 }

@@ -14,7 +14,8 @@ export const locale = {
 			save: 'Сохранить',
 		},
 		labels: {
-			User: 'Пользователи'
+			User: 'Пользователи',
+			Page: 'Страницы'
 		},
 		resources: {
 			User: {
@@ -25,7 +26,15 @@ export const locale = {
 					password: 'Пароль',
 					role: 'Роль',
 					'role.admin': 'Администратор',
-					'role.default': 'Обычный пользователь',
+					'role.default': 'Обычный пользователь'
+				}
+			},
+			Page: {
+				properties: {
+					name: 'Название',
+					code: 'Символьный код',
+					parent: 'Родитель',
+					content: 'Содежимое страницы'
 				}
 			}
 		}

@@ -1,33 +1,36 @@
-import { locale } from "../lang/ru/locale"
+import AdminJS from 'adminjs'
+import AdminJSExpress from '@adminjs/express'
 import { resourceUser, User } from "../models/User"
 import bcrypt from 'bcrypt'
-import { resourcePage } from "../models/Page"
+import { Resource, Database } from '@adminjs/mongoose'
+import { resourcePage } from '../models/Page'
+import { locale } from "../config/locale"
 
-const AdminBro = require('admin-bro')
-const AdminBroExpressjs = require('admin-bro-expressjs')
+AdminJS.registerAdapter({Resource, Database})
 
-AdminBro.registerAdapter(require('admin-bro-mongoose'))
-
-export const adminBro = new AdminBro({
+export const adminJS = new AdminJS({
 	resources: [resourceUser, resourcePage],
 	locale: locale,
 	rootPath: '/admin',
 })
 
-export const router = AdminBroExpressjs.buildAuthenticatedRouter(adminBro, {
-	authenticate: async (email: string, password: string) => {
-		const user = await User.findOne({ email })
-		if (user) {
-			if (user.role !== 'admin') return false
-			const matched = await bcrypt.compare(password, user.encryptedPassword)
-			if (matched) {
-				return user
-			}
-		}
-		return false
-	},
-	cookieName: 'admin',
-	cookiePassword: 'admin',
-})
+const authenticate = async (email: string, password: string) => {
+	const user = await User.findOne({ email })
+	if (user) {
+		if (user.role !== 'admin') return false
+		const matched = await bcrypt.compare(password, user.encryptedPassword)
+		if (matched) return user
+	}
+	return false
+}
+
+const router = AdminJSExpress.buildAuthenticatedRouter(
+	adminJS,
+	{
+		authenticate,
+		cookieName: 'adminjs',
+		cookiePassword: 'sessionsecret',
+	}
+)
 
 export default router
