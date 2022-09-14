@@ -20,6 +20,11 @@ export const Page = model<ModelType>('Page', PageSchema)
 export const resourcePage = {
   resource: Page,
   options: {
-    navigation: structureNavigation
+    navigation: structureNavigation,
+    properties: {
+      content: {
+        type: 'richtext',
+      }
+    }
   }
 }

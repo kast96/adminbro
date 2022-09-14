@@ -1,10 +1,10 @@
 import AdminJS from 'adminjs'
 import AdminJSExpress from '@adminjs/express'
-import { resourceUser, User } from "../models/User"
 import bcrypt from 'bcrypt'
 import { Resource, Database } from '@adminjs/mongoose'
-import { resourcePage } from '../models/Page'
 import { locale } from "../config/locale"
+import { resourceUser, User } from "../models/User"
+import { resourcePage } from '../models/Page'
 
 AdminJS.registerAdapter({Resource, Database})
 
