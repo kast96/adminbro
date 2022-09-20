@@ -11,7 +11,6 @@ export type ModelType = {
 }
 
 export const UserSchema = new Schema({
-	login: { type: String, required: true, unique: true },
 	name: { type: String },
 	email: { type: String, required: true, unique: true },
 	encryptedPassword: { type: String, required: true },
