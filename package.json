@@ -9,6 +9,7 @@
   "dependencies": {
     "@adminjs/express": "^5.0.0",
     "@adminjs/mongoose": "^3.0.0",
+    "@adminjs/upload": "^3.0.0",
     "adminjs": "^6.2.3",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",

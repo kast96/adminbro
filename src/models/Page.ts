@@ -15,6 +15,13 @@ export const PageSchema = new Schema({
   content: { type: String }
 })
 
+export const langPropertiesPage = {
+  name: 'Название',
+  code: 'Символьный код',
+  parent: 'Родитель',
+  content: 'Содежимое страницы'
+}
+
 export const Page = model<ModelType>('Page', PageSchema)
 
 export const resourcePage = {

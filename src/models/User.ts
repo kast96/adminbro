@@ -17,6 +17,15 @@ export const UserSchema = new Schema({
 	role: { type: String, enum: ['admin', 'default'], required: true },
 })
 
+export const langPropertiesUser = {
+  name: 'Имя',
+  email: 'Email',
+  password: 'Пароль',
+  role: 'Роль',
+  'role.admin': 'Администратор',
+  'role.default': 'Обычный пользователь'
+}
+
 export const User = model<ModelType>('User', UserSchema)
 
 export const resourceUser = {

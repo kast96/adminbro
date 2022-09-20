@@ -1,3 +1,7 @@
+import { langPropertiesPage } from "../models/Page";
+import { langPropertiesUser } from "../models/User";
+import { langPropertiesBanner } from "../models/Banner";
+
 export const locale = {
 	language: 'ru',
 	translations: {
@@ -15,28 +19,19 @@ export const locale = {
 		},
 		labels: {
 			User: 'Пользователи',
-			Page: 'Страницы'
+			Page: 'Страницы',
+			Banner: 'Основной баннер',
 		},
 		resources: {
 			User: {
-				properties: {
-					login: 'Логин',
-					name: 'Имя',
-					email: 'Email',
-					password: 'Пароль',
-					role: 'Роль',
-					'role.admin': 'Администратор',
-					'role.default': 'Обычный пользователь'
-				}
+				properties: langPropertiesUser
 			},
 			Page: {
-				properties: {
-					name: 'Название',
-					code: 'Символьный код',
-					parent: 'Родитель',
-					content: 'Содежимое страницы'
-				}
-			}
+				properties: langPropertiesPage
+			},
+			Banner: {
+				properties: langPropertiesBanner
+			},
 		}
 	}
 }

@@ -5,11 +5,12 @@ import { Resource, Database } from '@adminjs/mongoose'
 import { locale } from "../config/locale"
 import { resourceUser, User } from "../models/User"
 import { resourcePage } from '../models/Page'
+import { resourceBanner } from '../models/Banner'
 
 AdminJS.registerAdapter({Resource, Database})
 
 export const adminJS = new AdminJS({
-	resources: [resourceUser, resourcePage],
+	resources: [resourceUser, resourcePage, resourceBanner],
 	locale: locale,
 	rootPath: '/admin',
 })
